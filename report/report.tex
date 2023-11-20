@@ -1,0 +1,202 @@
+\documentclass[12pt,onecolumn,a4paper]{article}
+\usepackage{hyperref}
+\usepackage{hypcap}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{csvsimple}
+\usepackage{geometry}
+\usepackage{float}
+
+\geometry{
+a4paper,
+total={170mm,247mm},
+left=20mm,
+top=30mm,
+}
+\usepackage{tcolorbox}
+
+% Define a custom style for the box
+\tcbset{
+    mybox/.style={
+        colframe=magenta!90!black,
+        colback=magenta!10,
+        sharp corners,
+        boxrule=1pt,
+        fonttitle=\bfseries,
+        title=خروجی کد,
+        coltitle=black,
+    }
+}
+\usepackage{paralist}
+\usepackage{graphicx,subfigure,wrapfig}
+\usepackage{mathalpha,fontspec,unicode-math}
+\usepackage[fontsizescale = 1.1]{xepersian}
+
+\setdigitfont{XB Yas}
+\setmathfont[Scale= 1.2]{Latin Modern Math}
+\settextfont[Scale= 1]{XB Yas}
+\setlatintextfont[Scale = 1]{Latin Modern Roman}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
+\setdigitfont{XB Yas}
+\setmathfont[Scale= 1.2]{Latin Modern Math}
+\settextfont[Scale= 1]{XB Yas}
+\setlatintextfont[Scale = 1.2]{Latin Modern Roman}
+\linespread{1.5}
+
+
+\begin{document}
+\begin{figure}[t]   
+    \centerline{
+        \includegraphics[height =5 cm]{Sbu-logo.svg.png}}
+\end{figure}
+\begin{center}
+دانشگاه شهید بهشتی
+
+دانشکدهٔ فیزیک
+
+\vspace{30pt}
+
+\vspace{12pt}
+\Huge
+\textbf{
+    گزارش کار برنامه شبیه‌سازی انتقال بیماری
+}
+
+\LARGE
+
+\vspace{100pt}
+
+\textbf{
+محدثه مظفری}
+
+
+
+
+\vspace{30pt}
+\large
+آبان
+۱۴۰۲
+
+\end{center}
+
+
+\pagebreak
+
+\section{مقدمه}
+این برنامه یک مدل ساده از انتقال بیماری در یک جمعیت با استفاده از یک حلقه ارائه می‌دهد. برنامه با استفاده از متغیرهای
+\lr{ALPHA}
+،
+\lr{BETA}
+،
+\lr{$NUM\_ILLNESS$}
+و
+\lr{STEPS}
+تنظیمات اجرای شبیه‌سازی را مشخص می‌کند.
+
+با گذر زمان
+\lr{(STEPS)}
+، انتقال بیماری بر اساس 
+\lr{ALPHA}
+ و 
+ \lr{BETA}
+اعمال می‌شود.
+اگر یک فرد بیمار باشد ، با احتمال 
+\lr{ALPHA}
+به افراد همسایه بیماری منتقل می‌شود.
+با احتمال 
+\lr{BETA}
+فرد بیمار به حالت 2 (بهبود یافته) تغییر می‌کند.
+حالت نهایی جمعیت پس از گذر از تمام مراحل نمایش داده می‌شود.
+
+\section{نتایج شبیه‌سازی}
+
+برای شرایط اولیه
+\lr{N = 10}
+،
+\lr{ALPHA = 0.3}
+،
+\lr{BETA = 0.2}
+،
+\lr{$NUM\_ILLNESS$ = 2}
+و
+\lr{STEPS = 5000}
+نتیجه شبیه‌سازی به صورت زیر می‌باشد:
+
+\begin{tcolorbox}[mybox]
+        \LTR
+        \lr{0101000000}
+
+        \lr{2222222222}
+\end{tcolorbox}
+\RTL
+
+حالت اول شرایط اولیه را نمایش می‌دهد.
+که اعداد ۱ نشانگر افراد بیمار و اعداد ۰ نشانگر افراد سالم است.
+
+حالت دوم، حالت نهایی سیستم را نشان می‌دهد
+که همهٔ افراد بهبود‌یافته اند.
+
+
+برای شرایط اولیه
+\lr{N = 10}
+،
+\lr{ALPHA = 0.2}
+،
+\lr{BETA = 0.2}
+،
+\lr{$NUM\_ILLNESS$ = 2}
+و
+\lr{STEPS = 5000}
+نتیجه شبیه‌سازی به صورت زیر می‌باشد:
+
+\begin{tcolorbox}[mybox]
+        \LTR
+        \lr{0000100010}
+
+        \lr{2222200022}
+\end{tcolorbox}
+\RTL
+
+همان‌طور که مشاهده می‌شود؛ با تغییر مقدار 
+\lr{ALPHA}
+حالت نهایی سیستم تغییر می‌کند.
+زیرا ممکن است افراد بهبود‌یافته باشند و دیگر نتوانند همه سیستم را بیمار کنند.
+
+
+\section{کد شبیه‌سازی}
+\LTR
+\lstinputlisting[language=C++]{C:/Users/Asus/Documents/Programming/Disorder/main/main.cpp}
+\RTL
+
+
+
+\end{document}
